@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses List</title>
+</head>
+<body>
+    <h2>Courses List</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Faculty</th>
+            <th>Students</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.name }}</td>
+            <td>{{ course.code }}</td>
+
+            <!-- Faculty -->
+            <td>
+               {% with faculty_list=course.faculty.all %}
+                  {% if faculty_list %}
+                     {% for faculty in faculty_list %}
+                         {{ faculty.name }}{% if not forloop.last %}, {% endif %}
+                       {% endfor %}
+                   {% else %}
+                       No Faculty
+                   {% endif %}
+                {% endwith %}
+           </td>
+
+            <!-- Students -->
+            <td>
+                {% if course.students.all %}
+                    {% with student_list=course.students.all %}
+                        {% if student_list %}
+                            {% for student in student_list %}
+                                {{ student.name }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            No Students
+                        {% endif %}
+                    {% endwith %}
+                {% else %}
+                    No Students
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

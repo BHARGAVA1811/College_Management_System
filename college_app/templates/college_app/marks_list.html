@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> marks list</title>
+</head>
+<body>
+    <h2>Marks List</h2>
+    <table border ="1">
+    <tr>
+        <th>student</th>
+        <th>exam</th>
+        <th>marks</th>
+    </tr>
+    {%for mark in marks %}
+    <tr>
+        <td>{{mark.student.name}}</td>
+        <td>{{mark.exam.course}}</td>
+        <td>{{mark.marks}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

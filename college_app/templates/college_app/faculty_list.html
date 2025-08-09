@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> faculties list</title>
+</head>
+<body>
+    <h2>faculties List</h2>
+    <table border ="1">
+    <tr>
+        <th>name</th>
+        <th>department</th>
+        <th>contact_no</th>
+    </tr>
+    {%for faculty in faculties %}
+    <tr>
+        <td>{{faculty.name}}</td>
+        <td>{{faculty.department}}</td>
+        <td>{{faculty.contact_no}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
