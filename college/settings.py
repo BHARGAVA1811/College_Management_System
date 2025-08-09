@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-ow02zc8q5$zh!2g+f(ad=b7#tnf=2f4oyotxh-okzztpw=-$hl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-service.onrender.com']
+ALLOWED_HOSTS = [
+    'my-app.onrender.com',     
+    'localhost',
+    '127.0.0.1',
+    os.environ.get('RENDER_EXTERNAL_HOSTNAME', '')
+]
 
 
 # Application definition
@@ -134,3 +139,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
